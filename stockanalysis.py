@@ -165,6 +165,10 @@ last_date = dfreg.iloc[-1].name
 last_unix = last_date
 next_unix = last_unix + datetime.timedelta(days=1)
 
+#forecast_set = clf.predict(X_lately)
+forecast_set = clfpoly2.predict(X_lately)
+dfreg['Forecast'] = np.nan
+
 for i in forecast_set:
     next_date = next_unix
     next_unix += datetime.timedelta(days=1)
